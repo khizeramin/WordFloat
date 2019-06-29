@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Rotation2 : MonoBehaviour
+{
+    private float X_Axis;
+    private float Y_Axis;
+    private float Z_Axis;
+    private float flip;
+
+    private Rigidbody2D rb;
+    void Start()
+    {
+        X_Axis = 0.0F;
+        Y_Axis = 0.0f;
+        Z_Axis = 0.0f;
+        flip = 0.06f;
+
+        rb = GetComponent<Rigidbody2D>();
+        
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
+        transform.Rotate(new Vector3(30, Y_Axis, Z_Axis) * flip);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Entering Scene 2.
+            rb.bodyType = RigidbodyType2D.Dynamic;
+
+        }
+
+
+    }
+}
